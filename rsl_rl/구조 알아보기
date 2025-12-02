@@ -1,0 +1,10 @@
+import torch
+
+ckpt_path = "/home/woo/isaac_lab_ws/IsaacLab/logs/rsl_rl/franka_reach/2025-11-28_20-03-27/model_999.pt"
+ckpt = torch.load(ckpt_path, map_location="cpu")
+
+msd = ckpt["model_state_dict"]
+print(type(msd))
+print("num keys in model_state_dict:", len(msd))
+print("some keys:", list(msd.keys())[:20])
+
