@@ -1,0 +1,42 @@
+1. rsl rl 정책으로 Training된 pt 파일을 isaacsim 에서 구동하는 python 파일을 만드는것이 목표
+
+2. "skrl_move_right(pt 파일 구동).py" 이 파일은 skrl pt 파일을 isaacsim 에서 구동하는 python 파일 이었음. 이걸 기초로 바꾸면 될 것. 
+로봇과 환경은 완전히 동일. 
+
+3. 첨부한 파일들은 isaaclab 에서  pt 파일을 training 시킬때 필요할만한 파일들을 전부 첨부함. path 정보는 path.txt 에 거의 다 넣었음. 
+바뀐 pt 파일 경로(model_999.pt)도 있음.
+
+4. 바꾸기 위해서 구조 파악하는게 필요한 것 같음
+
+
+```
+    Python에서 한 번 ckpt = torch.load(model_999_path, map_location="cpu") 하고,
+
+    print(ckpt.keys()), print(type(ckpt["actor"])) 같이 구조를 확인.
+
+    그 구조에 맞게:
+
+        rsl_rl용 ActorCritic 네트워크 클래스를 Python 쪽에 정의.
+
+        policy_model.load_state_dict(ckpt["actor"])처럼 actor만 꺼내 로드.
+```
+이런걸 제안 받았었는데 너가 한번 확인해보고 제대로 알려줘
+
+4. obs 정규화 방식에서 
+
+
+```
+    obs 정규화 방식
+
+    rsl_rl_ppo_cfg.py 보면, RslRlPpoActorCriticCfg에 obs normalization 옵션이 있음[attached_file:rsl_rl_ppo_cfg.py].
+
+        actor_obs_normalization: False / True
+
+        critic_obs_normalization: False / True
+
+```
+
+이런거 확인하라고 하는데 확인할 path 알려줘. 
+
+5. 1번의 목표를 만족하기 위해서 step by step 나아가자
+
