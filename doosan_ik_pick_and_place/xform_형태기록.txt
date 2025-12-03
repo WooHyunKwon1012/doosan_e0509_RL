@@ -1,0 +1,35 @@
+하나의 usd 파일로 되어있으며
+로봇팔의 부분은
+base_link
+link_1
+link_2
+link_3
+link_4
+link_5
+link_6
+
+그리퍼와 로봇팔을 잇는 링크는 ee_link
+
+그후
+rh_p12_rn_base 를 통해서
+왼쪽 그리퍼 부분 => rh_p12_rn_l1 => rh_p12_rn_l2
+오른쪽 그리퍼 부분 => rh_p12_rn_r1 => rh_p12_rn_r2
+
+로 이어짐
+
+
+init_state = ArticulationCfg.InitialStateCfg(
+        joint_pos={
+            "joint_1":,
+            "joint_2":,   
+            "joint_3":,    
+            "joint_4":,
+            "joint_5": ,   
+            "joint_6":,
+            "rh_l1":,  
+            "rh_l2":,
+            "rh_p12_rn":,
+            "rh_r2":,
+        },
+        pos=(0.0, 0.0, 0.0),
+    )
