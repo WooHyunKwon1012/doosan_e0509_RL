@@ -1,0 +1,8 @@
+{
+  "type": "gripper",
+  "data": {
+    "name": "home",
+    "gripper": 0.0,
+    "duration": 1.0
+  }
+}
