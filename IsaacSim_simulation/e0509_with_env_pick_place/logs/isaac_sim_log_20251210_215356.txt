@@ -1,0 +1,378 @@
+
+============================================================
+Logging to: /home/woo/ros2_ws/src/doosan-robot2/isaacsim_connect/e0509_with_env_pick_place/logs/isaac_sim_log_20251210_215356.txt
+============================================================
+
+
+========== Checking Gripper (Detailed) ==========
+Current working directory: /home/woo/isaac-sim
+Robot USD path: /home/woo/ros2_ws/src/doosan-robot2/isaacsim_connect/e0509_with_env_pick_place/isaac_env/e0509_model.usd
+
+Gripper prim: /World/e0509_model/e0509/gripper
+  Valid: True
+  Type: Xform
+  Has references: True
+  Prim stack layers: 2
+    Layer 0: /home/woo/ros2_ws/src/doosan-robot2/isaacsim_connect/e0509_with_env_pick_place/isaac_env/e0509_model.usd
+    Layer 1: /home/woo/ros2_ws/src/doosan-robot2/isaacsim_connect/e0509_with_env_pick_place/isaac_env/gripper.usd
+  Children count: 1
+    Child: /World/e0509_model/e0509/gripper/gripper (Type: Xform)
+      Sub-children: 4
+      First sub-child: /World/e0509_model/e0509/gripper/gripper/Looks
+
+========== Setting Gripper Friction ==========
+  ✗ Finger not found: /World/e0509_model/e0509/gripper/gripper/rh_l1
+  ✗ Finger not found: /World/e0509_model/e0509/gripper/gripper/rh_r1
+  ✗ Finger not found: /World/e0509_model/e0509/gripper/gripper/rh_l2
+  ✗ Finger not found: /World/e0509_model/e0509/gripper/gripper/rh_r2
+
+========== Checking Collision Settings ==========
+
+/World/e0509_model:
+  Collision found: /World/e0509_model/e0509/base_link/collisions
+  Collision found: /World/e0509_model/e0509/link_1/collisions/mesh_0
+  Collision found: /World/e0509_model/e0509/link_1/collisions/mesh_1
+  Total collision prims: 20
+
+/World/ikea/nova_carter/move_props:
+  Collision found: /World/ikea/nova_carter/move_props/sorting_beaker_red/Geometry/sm_beaker_500ml_a01_01/sm_beaker_500ml_a01_01Shape
+  Collision found: /World/ikea/nova_carter/move_props/Cube
+  Total collision prims: 2
+
+/World/ikea:
+  Collision found: /World/ikea/props/sorting_beaker_red_01/Geometry/sm_beaker_500ml_a01_01/sm_beaker_500ml_a01_01Shape
+  Collision found: /World/ikea/props/sorting_beaker_red_02/Geometry/sm_beaker_500ml_a01_01/sm_beaker_500ml_a01_01Shape
+  Collision found: /World/ikea/ServingTrolley_C01_01/sm_servingtrolley_c01_frame_01
+  Total collision prims: 58
+
+/World/sm_warehouse_a01_h10m_cornerinmirror_01:
+  Collision found: /World/sm_warehouse_a01_h10m_cornerinmirror_01/sm_wall_a01_01/sm_wall_a01_molding_01
+  Collision found: /World/sm_warehouse_a01_h10m_cornerinmirror_01/sm_wall_a01_01/sm_wall_a01_skirting_01
+  Collision found: /World/sm_warehouse_a01_h10m_cornerinmirror_01/sm_wall_a01_01/sm_wall_a01_cornerguard02_01
+  Total collision prims: 167
+
+========== Detailed Teddy Bear USD Analysis (Before Reset) ==========
+
+Teddy bear prim: /World/ikea/nova_carter/move_props/teddy_bear
+  Valid: True
+  Type: Xform
+  Has RigidBodyAPI: False
+  Has MassAPI: False
+  Has CollisionAPI: False
+  All applied APIs: []
+
+Teddy bear/geometry/bear prim: /World/ikea/nova_carter/move_props/teddy_bear/geometry/bear
+  Valid: True
+  Type: Mesh
+  Has RigidBodyAPI: False
+  Has MassAPI: True
+  Has CollisionAPI: False
+  Has MeshCollisionAPI: False
+  All applied APIs: ['ShadowAPI', 'PhysxDeformableBodyAPI', 'PhysxDeformableAPI', 'PhysxCollisionAPI', 'PhysicsMassAPI']
+
+========== Comparing with Working Object (Cube) ==========
+Cube prim: /World/ikea/nova_carter/move_props/Cube
+  Type: Cube
+  Has RigidBodyAPI: False
+  Has MassAPI: False
+  Has CollisionAPI: True
+  All applied APIs: ['PhysicsCollisionAPI', 'PhysxCollisionAPI']
+
+========== Physics Scene Setup ==========
+  ✓ Physics scene ready at /physicsScene
+robot.dof_names after initialize: ['joint_1', 'joint_2', 'joint_3', 'joint_4', 'joint_5', 'joint_6', 'rh_l1', 'rh_r1_joint', 'rh_l2', 'rh_r2']
+num_dof: 10
+robot.get_joint_positions() after init: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+
+========== Activating PhysxDeformableBodyAPI for Teddy Bear ==========
+
+  Converting Teddy Bear from Deformable to Rigid Body...
+  Removing PhysxDeformableBodyAPI from /World/ikea/nova_carter/move_props/teddy_bear/geometry/bear...
+  ✓ DeformableBodyAPI removed
+  Adding RigidBodyAPI to geometry/bear (where collision happens)...
+  ✓ RigidBodyAPI added to /World/ikea/nova_carter/move_props/teddy_bear/geometry/bear
+  ✓ CollisionAPI added to geometry mesh
+  Setting collision mesh on geometry mesh: /World/ikea/nova_carter/move_props/teddy_bear/geometry/bear
+  ✓ MeshCollisionAPI added with convexDecomposition
+  Setting friction properties on geometry mesh...
+  ✓ Friction: static=1.5, dynamic=1.5, restitution=0.0
+  ✓ Teddy Bear geometry/bear converted to RigidBody (no longer deformable)
+
+Teddy bear geometry/bear is now a RigidBody at: /World/ikea/nova_carter/move_props/teddy_bear/geometry/bear
+  ✓ RigidBodyAPI present on geometry mesh
+  ✓ CollisionAPI present on geometry mesh
+  ✓ Can be grasped with Fixed Joint (connected to geometry mesh)
+  ✓ Mass = 0.10000000149011612 kg
+
+  RigidBody setup complete on geometry mesh!
+
+  Running physics steps to stabilize...
+  Physics stabilization complete!
+
+========== Setting up Surface Gripper ==========
+
+========== Teddy Bear Structure Debug ==========
+
+teddy_bear (parent):
+  Type: Xform
+  Has RigidBodyAPI: False
+  Has CollisionAPI: False
+  Applied APIs: []
+
+teddy_bear/geometry:
+  Type: Xform
+  Has RigidBodyAPI: False
+  Has CollisionAPI: False
+  Applied APIs: []
+
+teddy_bear/geometry/bear:
+  Type: Mesh
+  Has RigidBodyAPI: True
+  Has CollisionAPI: True
+  Applied APIs: ['PhysicsRigidBodyAPI', 'PhysicsCollisionAPI', 'PhysicsMeshCollisionAPI', 'ShadowAPI', 'PhysxCollisionAPI', 'PhysicsMassAPI']
+
+========== Inspecting Gripper Structure ==========
+
+🔍 Exploring gripper structure from: /World/e0509_model/e0509/gripper
+    ├─ joints (Type: Scope)
+    │  Path: /World/e0509_model/e0509/gripper/gripper/joints
+    │  RigidBody: False, Collision: False
+      ├─ rh_l1 (Type: PhysicsRevoluteJoint)
+      │  Path: /World/e0509_model/e0509/gripper/gripper/joints/rh_l1
+      │  RigidBody: False, Collision: False
+      ├─ rh_l2 (Type: PhysicsRevoluteJoint)
+      │  Path: /World/e0509_model/e0509/gripper/gripper/joints/rh_l2
+      │  RigidBody: False, Collision: False
+      ├─ rh_r1_joint (Type: PhysicsRevoluteJoint)
+      │  Path: /World/e0509_model/e0509/gripper/gripper/joints/rh_r1_joint
+      │  RigidBody: False, Collision: False
+      ├─ rh_r2 (Type: PhysicsRevoluteJoint)
+      │  Path: /World/e0509_model/e0509/gripper/gripper/joints/rh_r2
+      │  RigidBody: False, Collision: False
+        ├─ rh_p12_rn_base (Type: Xform)
+        │  Path: /World/e0509_model/e0509/gripper/gripper/base/end_effector_flange_link/rh_p12_rn_base
+        │  RigidBody: False, Collision: False
+    ├─ hand (Type: Xform)
+    │  Path: /World/e0509_model/e0509/gripper/gripper/hand
+    │  RigidBody: False, Collision: False
+      ├─ rh_p12_rn_l1 (Type: Xform)
+      │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l1
+      │  RigidBody: True, Collision: False
+      │  ⭐ PHYSICS ENABLED
+        ├─ visuals (Type: Xform)
+        │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l1/visuals
+        │  RigidBody: False, Collision: False
+          ├─ l1 (Type: Xform)
+          │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l1/visuals/l1
+          │  RigidBody: False, Collision: False
+            ├─ mesh (Type: Mesh)
+            │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l1/visuals/l1/mesh
+            │  RigidBody: False, Collision: False
+        ├─ collisions (Type: Xform)
+        │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l1/collisions
+        │  RigidBody: False, Collision: False
+          ├─ l1 (Type: Xform)
+          │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l1/collisions/l1
+          │  RigidBody: False, Collision: False
+            ├─ mesh (Type: Mesh)
+            │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l1/collisions/l1/mesh
+            │  RigidBody: False, Collision: True
+            │  ⭐ PHYSICS ENABLED
+      ├─ rh_p12_rn_l2 (Type: Xform)
+      │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l2
+      │  RigidBody: True, Collision: False
+      │  ⭐ PHYSICS ENABLED
+        ├─ visuals (Type: Xform)
+        │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l2/visuals
+        │  RigidBody: False, Collision: False
+          ├─ l2 (Type: Xform)
+          │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l2/visuals/l2
+          │  RigidBody: False, Collision: False
+            ├─ mesh (Type: Mesh)
+            │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l2/visuals/l2/mesh
+            │  RigidBody: False, Collision: False
+        ├─ collisions (Type: Xform)
+        │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l2/collisions
+        │  RigidBody: False, Collision: False
+          ├─ l2 (Type: Xform)
+          │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l2/collisions/l2
+          │  RigidBody: False, Collision: False
+            ├─ mesh (Type: Mesh)
+            │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l2/collisions/l2/mesh
+            │  RigidBody: False, Collision: True
+            │  ⭐ PHYSICS ENABLED
+        ├─ Xform (Type: Xform)
+        │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_l2/Xform
+        │  RigidBody: False, Collision: False
+      ├─ rh_p12_rn_r1 (Type: Xform)
+      │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r1
+      │  RigidBody: True, Collision: False
+      │  ⭐ PHYSICS ENABLED
+        ├─ visuals (Type: Xform)
+        │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r1/visuals
+        │  RigidBody: False, Collision: False
+          ├─ r1 (Type: Xform)
+          │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r1/visuals/r1
+          │  RigidBody: False, Collision: False
+            ├─ mesh (Type: Mesh)
+            │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r1/visuals/r1/mesh
+            │  RigidBody: False, Collision: False
+        ├─ collisions (Type: Xform)
+        │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r1/collisions
+        │  RigidBody: False, Collision: False
+          ├─ r1 (Type: Xform)
+          │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r1/collisions/r1
+          │  RigidBody: False, Collision: False
+            ├─ mesh (Type: Mesh)
+            │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r1/collisions/r1/mesh
+            │  RigidBody: False, Collision: True
+            │  ⭐ PHYSICS ENABLED
+      ├─ rh_p12_rn_r2 (Type: Xform)
+      │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r2
+      │  RigidBody: True, Collision: False
+      │  ⭐ PHYSICS ENABLED
+        ├─ visuals (Type: Xform)
+        │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r2/visuals
+        │  RigidBody: False, Collision: False
+          ├─ r2 (Type: Xform)
+          │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r2/visuals/r2
+          │  RigidBody: False, Collision: False
+            ├─ mesh (Type: Mesh)
+            │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r2/visuals/r2/mesh
+            │  RigidBody: False, Collision: False
+        ├─ collisions (Type: Xform)
+        │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r2/collisions
+        │  RigidBody: False, Collision: False
+          ├─ r2 (Type: Xform)
+          │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r2/collisions/r2
+          │  RigidBody: False, Collision: False
+            ├─ mesh (Type: Mesh)
+            │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r2/collisions/r2/mesh
+            │  RigidBody: False, Collision: True
+            │  ⭐ PHYSICS ENABLED
+        ├─ Xform (Type: Xform)
+        │  Path: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r2/Xform
+        │  RigidBody: False, Collision: False
+
+========== Creating Surface Gripper ==========
+  Using end_effector for Surface Gripper: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r2
+  ℹ️  This is the actual gripper center (between fingers)
+
+  ✓ SurfaceGripperWrapper created
+    Using existing USD prim at: /World/e0509_model/SurfaceGripper
+    End effector: /World/e0509_model/e0509/gripper/gripper/hand/rh_p12_rn_r2
+    ⚠️  GripperView will be initialized in initialize() (after world.reset())
+
+  ✓ Surface Gripper setup complete
+  ℹ️  Gripper will automatically detect and grasp nearby objects
+  ℹ️  Move link_6 close to the object and send gripper command
+
+  Initializing gripper after world reset...
+
+  🔧 Initializing Surface Gripper (after world.reset())...
+    Checking existing Surface Gripper prim in USD...
+    ✓ Found existing prim: /World/e0509_model/SurfaceGripper
+    ✓ Attachment points from USD (2 finger links):
+      1. /World/e0509_model/D6_joint/D6Joint
+      2. /World/e0509_model/D6_joint/D6Joint_01
+    Creating GripperView (connecting to USD prim)...
+
+  ✓ GripperView initialized
+    Path: /World/e0509_model/SurfaceGripper
+    Max grip distance: 0.2m (20.0cm)
+    Coaxial force limit: 1e4 N (10000 N)
+    Shear force limit: 1e4 N (10000 N)
+    Retry interval: 0.1 s
+  ✓ Gripper initialization complete!
+Ready. /joint_input → set joints, /joint_pos → current joints, /gripper_command → grasp/release. Press Ctrl+C to stop.
+
+Gripper Command Usage:
+  ros2 topic pub /gripper_command std_msgs/msg/Int32 '{data: 1}'  # Close (grasp)
+  ros2 topic pub /gripper_command std_msgs/msg/Int32 '{data: 0}'  # Open (release)
+  [GRIPPER] Attempting to grasp...
+  [DEBUG] SurfaceGripper prim valid: True
+  [GRIPPER] ✓ Close command sent
+  [GRIPPER] ℹ️  Will grasp objects within 20.0cm
+  [GRIPPER] 🎯 ATTACHED! Gripped objects: ['/World/ikea/nova_carter/move_props/sorting_beaker_red/Geometry/sm_beaker_500ml_a01_01']
+  [GRIPPER] Status: 2 (1=closed/attached)
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Already closed
+  [GRIPPER] Releasing object...
+  [GRIPPER] ✓ Open command sent
+  [GRIPPER] Already open
+  [GRIPPER] Already open
