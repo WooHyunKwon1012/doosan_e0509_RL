@@ -135,4 +135,3 @@ for _ in range(1000):
     obs, reward, terminated, truncated, info = env.step(action)
 ```
 
-이렇게 DOOSAN E0509 로봇도 cabinet 프로젝트와 동일한 방식으로 강화학습과 IK를 결합할 수 있습니다!
