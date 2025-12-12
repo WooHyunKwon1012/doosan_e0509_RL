@@ -59,7 +59,7 @@ STYLE_STATUS_LABEL = f"padding: {PADDING_STATUS_LABEL}px; border: 1px solid #ccc
 # Duration Settings
 # ============================================================================
 DURATION_MIN = 0.1
-DURATION_MAX = 10.0
+DURATION_MAX = 100.0
 DURATION_STEP = 0.1
 DURATION_DEFAULT = 2.0
 

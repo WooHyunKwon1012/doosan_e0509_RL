@@ -492,7 +492,7 @@ class EditGripperDialog(QDialog):
         dur_layout = QHBoxLayout()
         dur_layout.addWidget(QLabel('Duration (s):'))
         self.duration_spin = QDoubleSpinBox()
-        self.duration_spin.setRange(0.1, 100.0)
+        self.duration_spin.setRange(0.1, 10.0)
         self.duration_spin.setSingleStep(0.1)
         self.duration_spin.setValue(duration)
         self.duration_spin.setSuffix(' s')
@@ -539,9 +539,9 @@ class MainWindow(QMainWindow):
         
         # ROS 스레드
         self.ros_thread = ROSThread()
-        self.ros_thread.joint_state_updated.connect(self.update_joint_states, Qt.QueuedConnection)
-        self.ros_thread.joint_pos_updated.connect(self.update_joint_pos, Qt.QueuedConnection)
-        self.ros_thread.ik_error.connect(self.show_ik_error, Qt.QueuedConnection)
+        self.ros_thread.joint_state_updated.connect(self.update_joint_states)
+        self.ros_thread.joint_pos_updated.connect(self.update_joint_pos)
+        self.ros_thread.ik_error.connect(self.show_ik_error)
         self.ros_thread.start()
         
         self.init_ui()
@@ -952,15 +952,7 @@ class MainWindow(QMainWindow):
         self.current_joints = joints
     
     def show_ik_error(self, error_msg):
-        """IK 에러 메시지를 GUI에 표시 (메인 스레드에서 안전하게 실행)"""
-        # Status label은 즉시 업데이트
-        self.status_label.setText('❌ IK Failed - Target pose unreachable')
-        
-        # QMessageBox는 QTimer를 통해 메인 스레드에서 실행
-        QTimer.singleShot(0, lambda: self._show_ik_error_dialog(error_msg))
-    
-    def _show_ik_error_dialog(self, error_msg):
-        """실제 다이얼로그 표시 (메인 스레드 전용)"""
+        """IK 에러 메시지를 GUI에 표시"""
         QMessageBox.warning(
             self,
             '❌ IK Solver Error',
@@ -970,6 +962,7 @@ class MainWindow(QMainWindow):
             '• Avoid extreme orientations (RPY values)\n'
             '• Use "Get Current Pose" to see reachable pose'
         )
+        self.status_label.setText('❌ IK Failed - Target pose unreachable')
     
     def update_joint_pos(self, full_state):
         """Isaac Sim /joint_pos 업데이트 (joints + gripper)"""
@@ -1277,7 +1270,7 @@ class MainWindow(QMainWindow):
             duration_layout = QHBoxLayout()
             duration_layout.addWidget(QLabel('Duration:'))
             duration_spin = QDoubleSpinBox()
-            duration_spin.setRange(0.5, 100.0)
+            duration_spin.setRange(0.5, 10.0)
             duration_spin.setSingleStep(0.5)
             duration_spin.setDecimals(1)
             duration_spin.setValue(data['duration'])
@@ -1805,7 +1798,7 @@ class MainWindow(QMainWindow):
             duration_layout = QHBoxLayout()
             duration_layout.addWidget(QLabel('Duration:'))
             duration_spin = QDoubleSpinBox()
-            duration_spin.setRange(0.5, 100.0)
+            duration_spin.setRange(0.5, 10.0)
             duration_spin.setSingleStep(0.5)
             duration_spin.setDecimals(1)
             duration_spin.setValue(2.0)

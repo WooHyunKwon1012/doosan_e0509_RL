@@ -510,31 +510,32 @@ ros2 topic pub --once /joint_input std_msgs/Float32MultiArray \
 ## 실행 순서
 
 ```bash
-# 1. Isaac Sim (먼저)
-source /home/woo/IsaacSim-ros_workspaces/build_ws/jazzy/jazzy_ws/install/local_setup.bash
-source /home/woo/IsaacSim-ros_workspaces/build_ws/jazzy/isaac_sim_ros_ws/install/local_setup.bash
-
-cd ~/isaac-sim
-./python.sh ~/ros2_ws/src/doosan-robot2/isaacsim_connect/e0509_with_env_pick_place/isaacsim_e0509_collision_solved.py
 
 
 
-# 2. MoveIt2
+
+# 1. MoveIt2
 source /opt/ros/jazzy/setup.bash 
 cd ~/ros2_ws
 source install/setup.bash
 ros2 launch dsr_bringup2 dsr_bringup2_moveit.launch.py mode:=virtual model:=e0509 host:=127.0.0.1
 
-# 3. Bridge
+# 2. Bridge
 source /opt/ros/jazzy/setup.bash 
 cd ~/ros2_ws/src/doosan-robot2/isaacsim_connect/e0509_with_env_pick_place
 python3 joint_state_bridge.py
 
-# 4. GUI (Cartesian Control 포함)
+# 3. GUI (Cartesian Control 포함)
 source /opt/ros/jazzy/setup.bash 
 cd ~/ros2_ws/src/doosan-robot2/isaacsim_connect/e0509_with_env_pick_place
-python3 gui_add_cartesian_control.py
+python3 gui.py
 
+# 4. Isaac Sim (먼저)
+source /home/woo/IsaacSim-ros_workspaces/build_ws/jazzy/jazzy_ws/install/local_setup.bash
+source /home/woo/IsaacSim-ros_workspaces/build_ws/jazzy/isaac_sim_ros_ws/install/local_setup.bash
+
+cd ~/isaac-sim
+./python.sh ~/ros2_ws/src/doosan-robot2/isaacsim_connect/e0509_with_env_pick_place/isaacsim_e0509_surface_gripper_in_usd_pick_all.py
 ```
 
 ---

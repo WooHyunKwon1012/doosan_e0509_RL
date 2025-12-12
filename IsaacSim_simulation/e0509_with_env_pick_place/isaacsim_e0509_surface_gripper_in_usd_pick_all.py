@@ -70,7 +70,7 @@ add_reference_to_stage(usd_path=room_usd_path, prim_path="/World")
 # 로봇 USD 추가 (e0509_with_gripper와 동일한 파일 사용)
 robot_usd_path = "/home/woo/ros2_ws/src/doosan-robot2/isaacsim_connect/e0509_with_env_pick_place/isaac_env/e0509_model.usd"
 robot_prim_path = "/World/e0509_model"
-robot_spawn_position = (1.9000000283122063, -4.800000071525574, 0.78)
+robot_spawn_position = (1.7000000283122063, -4.750000071525574, 0.78)
 
 add_reference_to_stage(usd_path=robot_usd_path, prim_path=robot_prim_path)
 
@@ -373,7 +373,7 @@ class SurfaceGripperWrapper:
     Isaac Sim 5.1 - USD에 이미 생성된 Surface Gripper 사용
     ⭐ USD 파일에 prim이 이미 존재함 - 코드에서 생성하지 않음
     """
-    def __init__(self, end_effector_path, world, grip_threshold=0.2):
+    def __init__(self, end_effector_path, world, grip_threshold=0.1):
         self.end_effector_path = end_effector_path
         self.world = world
         self.is_closed = False
@@ -580,7 +580,7 @@ print(f"  Using end_effector for Surface Gripper: {end_effector_path}")
 print(f"  ℹ️  This is the actual gripper center (between fingers)")
 
 # 🔥 grip_threshold 설정 (20cm로 증가 - teddy bear가 13-14cm 거리에 있음)
-grip_threshold = 0.20  # 20cm = 0.20m (현재 거리: ~0.13m)
+grip_threshold = 0.10  # 20cm = 0.20m (현재 거리: ~0.13m)
 
 gripper = SurfaceGripperWrapper(
     end_effector_path=end_effector_path,
