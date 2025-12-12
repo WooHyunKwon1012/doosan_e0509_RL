@@ -1,0 +1,15 @@
+{
+  "type": "joint",
+  "data": {
+    "name": "zero pose",
+    "joints": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "duration": 2.0
+  }
+}

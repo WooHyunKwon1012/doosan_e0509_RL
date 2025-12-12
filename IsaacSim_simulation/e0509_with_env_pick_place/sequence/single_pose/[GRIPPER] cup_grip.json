@@ -1,0 +1,8 @@
+{
+  "type": "gripper",
+  "data": {
+    "name": "cup_grip",
+    "gripper": 0.3490658503988659,
+    "duration": 1.0
+  }
+}
